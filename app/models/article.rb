@@ -3,5 +3,5 @@ class Article < ApplicationRecord
 
   # This is the same as calling Article.preload(:user),
   # but we are hiding the implementation details.
-  scope :with_users, -> { preload(:user) }
+  scope :with_users, -> { joins(:user) }
 end

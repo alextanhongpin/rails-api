@@ -7,15 +7,16 @@ module Api::V1
       # @users = User.all
 
       # render json: @users
-      id = 2
-      stmt = <<-SQL
-        SELECT * 
-        FROM articles a
-        LEFT JOIN users u ON (a.user_id = u.id)
-        WHERE u.id = #{id}
-      SQL
+      # id = 2
+      # stmt = <<-SQL
+      #   SELECT *
+      #   FROM articles a
+      #   LEFT JOIN users u ON (a.user_id = u.id)
+      #   WHERE u.id = #{id}
+      # SQL
 
-      render json: Article.find_by_sql(stmt)
+      # render json: Article.find_by_sql(stmt)
+      render json: User.all
     end
 
     # GET /users/1

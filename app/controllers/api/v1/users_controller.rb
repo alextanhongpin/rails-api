@@ -4,7 +4,7 @@ module Api::V1
 
     # GET /users
     def index
-      # @users = User.all
+      @users = User.all
 
       # render json: @users
       # id = 2
@@ -16,7 +16,7 @@ module Api::V1
       # SQL
 
       # render json: Article.find_by_sql(stmt)
-      render json: User.all
+      render json: @users
     end
 
     # GET /users/1
@@ -29,7 +29,7 @@ module Api::V1
       @user = User.new(user_params)
 
       if @user.save
-        render json: @user, status: :created, location: @user
+        render json: @user, status: :created, location: v1_user_url(@user)
       else
         render json: @user.errors, status: :unprocessable_entity
       end
